@@ -1,0 +1,21 @@
+<div class="checklist-background"></div>
+    <div class="checklist-container">
+        <h1 class="dramatic-tape">Zombie Apocalypse Survival Checklist:</h1>
+        <div class="checklist">
+            <section id="main">
+                <ul id="tasks-list">
+                    {{#each task in model itemController="task"}}
+                    <div {{bind-attr class="task.isCompleted:completed "}} >
+                        <li class="fitted">
+                            {{input type="checkbox" checked=task.isCompleted class="toggle"}}
+                            <label class="wordwrap">{{task.job}}</label>
+                                <button {{action "removeTask"}} class="destroy">X</button>
+                        </li>
+                    </div>
+                    {{/each}}
+                </ul>
+            </section>
+        </div>
+    </div>
+
+{{outlet}}
